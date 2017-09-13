@@ -1,0 +1,767 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue,pdfpagelayout=OneColumn, pdfnewwindow=true,pdfstartview=XYZ, plainpages=false, pdfpagelabels,pdftex"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part*{Capítulo 2.
+ Vulnerabilidades}
+\backslash
+addcontentsline{toc}{part}{Capítulo 2.
+ Vulnerabilidades}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Se definirá primeramente el concepto de 
+\emph on
+vulnerabilidad de software
+\emph default
+, a qué se le llama 
+\emph on
+exposición
+\emph default
+ y qué es el estándar CVE (
+\emph on
+Common Vulnerabilities and Exposures
+\emph default
+) para comprender el problema que se quiere resolver a lo largo de este
+ proyecto.
+\end_layout
+
+\begin_layout Section*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{2.1 Vulnerabilidad de Software}
+\end_layout
+
+\end_inset
+
+Vulnerabilidad de Software
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Una vulnerabilidad es un problema en la lógica computacional que se puede
+ encontrar tanto a nivel de software como a nivel de hardware (por ejemplo,
+ en el rmware) y que al ser explotada, puede ocasionar un impacto negativo
+ en la integridad, disponibilidad o confidencialidad en el sistema vulnerable.
+ La mitigación de una vulnerabilidad requiere típicamente cambios en el
+ código del software, pero también puede incluir cambios en la especificación
+ del mismo o hasta llegar a desechar por completo una especificación.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Una vulnerabilidad también puede definirse como un estado en un sistema
+ informático (o conjunto de sistemas) que bien:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Permite a un atacante ejecutar comandos como si fuera un usuario del sistema,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+permite a un atacante acceder a datos aunque este no cuente con los permisos
+ necesarios para el acceso a esos datos,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+permite a un atacante usar la identidad de otra entidad,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+permite a un atacante llevar a cabo una denegación de servicios.
+\end_layout
+
+\begin_layout Section*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{2.2 Exposición}
+\end_layout
+
+\end_inset
+
+Exposición
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Una exposición es un problema en la configuración del sistema o un error
+ en el software que permite acceder a información o capacidades del sistema
+ que podrían ser usadas por un atacante como punto de partida para entrar
+ en un sistema o red.
+ Un problema de configuración o error de software se considera una exposición
+ si esta no compromete directamente al sistema pero puede ser un componente
+ importante para realizar un ataque al mismo.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Una exposición también puede definirse como un estado en un sistema informático
+ (o conjunto de sistemas) que no representa una vulnerabilidad pero:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Permite a un atacante realizar actividades de recolección de datos,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+permite a un atacante esconder sus actividades,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+incluye una capacidad que se comporta como se espera pero que puede fácilmente
+ ser comprometida,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+es un punto de entrada que un atacante puede usar para obtener acceso al
+ sistema o a los datos,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+es considerado un problema de acuerdo a alguna política de seguridad razonable.
+\end_layout
+
+\begin_layout Section*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{2.3 CVE}
+\end_layout
+
+\end_inset
+
+CVE (
+\emph on
+Common Vulnerabilities and Exposures
+\emph default
+)
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Antes de la existencia del estándar CVE, utilizado para el registro de vulnerabi
+lidades informáticas de forma estructurada, muchas de las herramientas de
+ seguridad tenían su propia base de datos, con su sistema de nombres para
+ el registro de las vulnerabilidades.
+ Esto hacía difícil la tarea de identificar cuándo un problema registrado
+ por distintas herramientas se referían al mismo, además de que cada uno
+ utilizaba sus propias métricas en cuánto a la severidad de la vulnerabilidad.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+CVE es un diccionario de nombres comunes, los cuales se denominan
+\emph on
+ indentificadores CVE
+\emph default
+, estos nombres se utilizan para identificar las vulnerabilidades de seguridad
+ públicamente conocidas.
+ Un 
+\emph on
+identificador CVE
+\emph default
+ esta compuesto por tres elementos:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Un identificador compuesto por tres componentes, el prefijo CVE seguido
+ del año en el que se reportó el problema y por último un número arbitrario
+ para unicidad.
+ Un ejemplo posible sería CVE-2015-98765.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Una breve descripción de la vulnerabilidad o exposición de seguridad.
+ 
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Cualquier tipo de referencia que ayude a entender el problema, como reportes
+ de vulnerabilidades similares, recomendaciones, etc.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Estos identificadores CVE hacen que la tarea de compartir datos a través
+ de distintas bases de datos y herramientas de seguridad sea mucho mas sencillo,
+ proporcionando una línea base para evaluar la cobertura de las distintas
+ herramientas de seguridad de una organización.
+ Si el reporte de la vulnerabilidad por medio de alguna de las herramientas
+ de seguridad incorpora identificadores CVE, se puede acceder de forma rápida
+ y precisa a la información de cómo remediar el problema en alguna de las
+ bases de datos compatibles con CVE.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+En resumen, un identificador CVE es:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Un nombre para una vulnerabilidad o exposición.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Una descripción estandarizada para cada vulnerabilidad o exposición.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Un diccionario en lugar de una base de datos.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+La forma en que distintas bases de datos o herramientas pueden hablar en
+ el mismo idioma.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+El camino hacia la interoperabilidad y mejor cobertura respecto a seguridad
+ de un sistema.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Una base para la evaluación de las distintas herramientas y bases de datos.
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Gratis para ser descargado y de uso publico, apoyado en la industria por
+ 
+\emph on
+CVE Numbering Authorities, CVE Board y CVE-Compatible Products
+\emph default
+.
+\end_layout
+
+\begin_layout Section*
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{2.4 CVSS}
+\end_layout
+
+\end_inset
+
+CVSS (Common Vulnerability Scoring System)
+\end_layout
+
+\begin_layout Standard
+En la actualidad se reportan una gran cantidad de vulnerabilidades para
+ una gran cantidad de sistemas tanto de hardware como de software.
+ Como son muchos los reportes es necesario priorizarlas de alguna manera
+ y resolver aquellas que sean mas riesgosas.
+ Pero priorizar las vulnerabilidades no era nada sencillo dado que existían
+ diversos sistemas de puntuación cada uno con su propia escala, esto complicaba
+ tomar una buena decisión por la gran cantidad de información, es aquí que
+ nace el framework CVSS para resolver estos problemas, brindando los siguientes
+ beneficios:
+\end_layout
+
+\begin_layout Itemize
+Puntuación estandarizada: Cuando una organización normaliza las puntuaciones
+ de vulnerabilidad en todas sus plataformas de hardware y software, puede
+ aprovechar una sola política de administración de vulnerabilidades.
+\end_layout
+
+\begin_layout Itemize
+Open Framework: Al ser un framework abierto cualquiera puede ver las característ
+icas individuales utilizadas para obtener una puntuación.
+\end_layout
+
+\begin_layout Itemize
+Riesgo priorizado: Las puntuaciones de vulnerabilidad son ahora representativas
+ del riesgo real para una organización, o sea que los usuarios saben lo
+ importante que es una vulnerabilidad dada en relación con otras vulnerabilidade
+s.
+\end_layout
+
+\begin_layout Subsection*
+Métricas Base
+\end_layout
+
+\begin_layout Standard
+Las métricas base capturan las características de una vulnerabilidad que
+ son constantes con el tiempo y en los entornos de usuario.
+ Las métricas Vector de Acceso, Complejidad de Acceso y Autenticacion capturan
+ como se accede a la vulnerabilidad y si se requieren o no condiciones adicional
+es para poder explotarla.
+ Las tres métricas de impacto miden como una vulnerabilidad, si es explotada,
+ afectara al sistema, donde los impactos se definen de forma independiente
+ como el grado de perdida de confidencialidad, integridad y disponibilidad.
+\end_layout
+
+\begin_layout Subsubsection*
+Vector de Acceso (AV)
+\end_layout
+
+\begin_layout Standard
+Esta metrica refleja como se explota la vulnerabilidad, mientras mas remoto
+ un atacante puede atacar el sistema, mayor la puntuación que se le dará
+ a la vulnerabilidad.
+\end_layout
+
+\begin_layout Standard
+Los valores para esta métrica son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+Local (Local, L): El atacante necesita tener acceso al sistema vulnerable
+ de manera física o una cuenta de linea de comandos local.
+\end_layout
+
+\begin_layout Itemize
+Red Adyacente (Adjacent Network, A): El atacante necesita acceso al dominio
+ de difusión o colisión del software vulnerable.
+\end_layout
+
+\begin_layout Itemize
+Red (Network, N): Una vulnerabilidad explotable a través de la red significa
+ que el software vulnerable esta ligado a una red y el atacante no necesitaría
+ acceso a la red local o acceso a físico al sistema.
+\end_layout
+
+\begin_layout Subsubsection*
+Complejidad de Acceso (AC)
+\end_layout
+
+\begin_layout Standard
+Esta métrica mide la complejidad que requiere el ataque para lograr explotar
+ la vulnerabilidad una vez que se logro acceder al sistema.
+\end_layout
+
+\begin_layout Standard
+Los posibles valores para esta métrica son los siguientes, mientras mas
+ baja sea la complejidad mas alta sera la puntuación final de la vulnerabilidad.
+\end_layout
+
+\begin_layout Itemize
+Alta (High, H): Se requieren condiciones de acceso especializadas, por ejemplo,
+ en el caso de configuraciones sera necesario contar con permisos elevados,
+ ataques que dependan de ingeniería social podrían ser fácilmente detectados
+ por personas atentas.
+\end_layout
+
+\begin_layout Itemize
+Medio (Medium, M): Se requieren condiciones parcialmente especializadas,
+ por ejemplo, el atacante podría estar limitado a un grupo de sistemas o
+ usuarios con algún nivel de autorización posiblemente no confiable, ataques
+ que requieran una pequeña cantidad de ingeniería social que ocasionalmente
+ podría engañar a usuarios cuidadosos.
+\end_layout
+
+\begin_layout Itemize
+Baja (Low, L): No se requieren condiciones de acceso especializadas, por
+ ejemplo, el producto afectado accede a una gran cantidad de sistemas y
+ usuarios, típicamente anónimos y sin autenticar, la configuración afectada
+ viene así por defecto.
+\end_layout
+
+\begin_layout Subsubsection*
+Autenticacion (Au)
+\end_layout
+
+\begin_layout Standard
+Esta métrica el numero de veces que un atacante necesita autenticarse para
+ poder explotar una vulnerabilidad, en esta métrica no se busca medir la
+ complejidad de los métodos de autenticacion, solo si el atacante requiere
+ credenciales para lograr el ataque.
+ Mientras menos instancias de autenticacion se requieran mayor sera la puntuació
+n de la vulnerabilidad.
+\end_layout
+
+\begin_layout Standard
+Los posibles valores para esta métrica son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+Múltiples (Multiple, M): Para explotar la vulnerabilidad se requieren 2
+ o mas autenticaciones al sistema, aun si se usan las mismas credenciales,
+ por ejemplo, el atacante debe brindar autenticacion para entrar a un sistema
+ operativo y debe dar otra autenticacion para lograr acceder a una aplicación
+ de ese sistema.
+\end_layout
+
+\begin_layout Itemize
+Simple (Single, S): La vulnerabilidad requiere que el atacante este logueado
+ al sistema.
+\end_layout
+
+\begin_layout Itemize
+Ninguna (None, N): No se requiere autenticacion para explotar la vulnerabilidad.
+\end_layout
+
+\begin_layout Subsubsection*
+Impacto de Confidencialidad (C)
+\end_layout
+
+\begin_layout Standard
+Esta métrica mide el impacto en la confidencialidad si la vulnerabilidad
+ es explotada con éxito.
+ Por confidencialidad nos referimos a limitar el acceso a cierta información
+ y que sea revelada solo a usuarios autorizados como también prevenir que
+ dicha información sea accesada o revelada a usuarios no autorizados.
+\end_layout
+
+\begin_layout Standard
+Los posibles valores para esta métrica son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+Ninguno (None, N): No hay impacto en la confidencialidad del sistema
+\end_layout
+
+\begin_layout Itemize
+Parcial (Partial, P): Se revela una cantidad considerable de información,
+ pero el atacante no tiene control sobre que datos se obtienen o del alcance
+ de la perdida se puede limitar, por ejemplo, una vulnerabilidad que muestre
+ solo el contenido de ciertas tablas de una base de datos.
+\end_layout
+
+\begin_layout Itemize
+Completa (Complete, C): Se revela toda la información, todos los archivos
+ son revelados.
+ El atacante es capaz de leer todos los archivos del sistema.
+\end_layout
+
+\begin_layout Subsubsection*
+Impacto de Integridad (I)
+\end_layout
+
+\begin_layout Standard
+Esta métrica mide el impacto en la integridad del sistema si la vulnerabilidad
+ es explotada con éxito.
+ Por integridad nos referimos a la confiabilidad y veracidad de la información.
+\end_layout
+
+\begin_layout Standard
+Los posibles valores para esta métrica son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+Ninguno (None, N): No hay impacto en la integridad del sistema
+\end_layout
+
+\begin_layout Itemize
+Parcial (Partial, P): Algunos archivos del sistema pueden haber sido modificados
+, pero el atacante no tiene control de lo que se modifica o los archivos
+ que se podían cambiar eran muy limitados.
+\end_layout
+
+\begin_layout Itemize
+Completa (Complete, C): La integridad de todo el sistema esta comprometida.
+ Se perdió por completo la protección del sistema resultando en que el atacante
+ es capaz de modificar cualquier archivo del sistema.
+\end_layout
+
+\begin_layout Subsubsection*
+Impacto de Disponibilidad (A)
+\end_layout
+
+\begin_layout Standard
+Esta métrica mide el impacto en la disponibilidad del sistema si la vulnerabilid
+ad es explotada con éxito.
+ Por disponibilidad nos referimos a la accesibilidad a los recursos de la
+ información.
+ Ataques que consumen el ancho de banda de la red, ciclos de procesador
+ o espacio de disco, todos ellos impactan ala disponibilidad del sistema.
+\end_layout
+
+\begin_layout Standard
+Los posibles valores son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+Ninguno (None, N): No hay impacto en la disponibilidad del sistema
+\end_layout
+
+\begin_layout Itemize
+Parcial (Partial, P): El sistema puede sufrir una reducción de eficiencia
+ o interrupciones en la disponibilidad de algunos recursos.
+\end_layout
+
+\begin_layout Itemize
+Completa (Complete, C): Se produce una caída en los recursos afectados.
+ El atacante es capaz de hacer que el sistema no este disponible.
+\end_layout
+
+\begin_layout Subsection*
+Ecuación Base
+\end_layout
+
+\begin_layout Standard
+Con las métricas base ya definidas, lo siguiente es definir como se realizara
+ el calculo que nos permitirá darle una puntuación a la vulnerabilidad,
+ a continuación mostramos todas las ecuaciones y constantes necesarias para
+ realizar dicho calculo.
+\end_layout
+
+\begin_layout Quote
+BaseScore = round_to_1_decimal(((0.6*Impact)+(0.4*Exploitability)-1.5)*f(Impact))
+\end_layout
+
+\begin_layout Quote
+Impact = 10.41*(1-(1-ConfImpact)*(1-IntegImpact)*(1-AvailImpact))
+\end_layout
+
+\begin_layout Quote
+Exploitability = 20* AccessVector*AccessComplexity*Authentication
+\end_layout
+
+\begin_layout Quote
+f(impact)= 0 if Impact=0, 1.176 otherwise
+\end_layout
+
+\begin_layout Quote
+AccessVector = case AccessVector of 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+requires local access: 0.395 
+\end_layout
+
+\begin_layout Quote
+adjacent network accessible: 0.646 
+\end_layout
+
+\begin_layout Quote
+network accessible: 1.0
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+AccessComplexity = case AccessComplexity of 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+high: 0.35 
+\end_layout
+
+\begin_layout Quote
+medium: 0.61 
+\end_layout
+
+\begin_layout Quote
+low: 0.71
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+Authentication = case Authentication of 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+requires multiple instances of authentication: 0.45 
+\end_layout
+
+\begin_layout Quote
+requires single instance of authentication: 0.56 
+\end_layout
+
+\begin_layout Quote
+requires no authentication: 0.704
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+ConfImpact = case ConfidentialityImpact of 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+none: 0.0 
+\end_layout
+
+\begin_layout Quote
+partial: 0.275 
+\end_layout
+
+\begin_layout Quote
+complete: 0.660
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+IntegImpact = case IntegrityImpact of 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+none: 0.0 
+\end_layout
+
+\begin_layout Quote
+partial: 0.275 
+\end_layout
+
+\begin_layout Quote
+complete: 0.660
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+AvailImpact = case AvailabilityImpact of 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+none: 0.0 
+\end_layout
+
+\begin_layout Quote
+partial: 0.275 
+\end_layout
+
+\begin_layout Quote
+complete: 0.660
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,257 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue,pdfpagelayout=OneColumn, pdfnewwindow=true,pdfstartview=XYZ, plainpages=false, pdfpagelabels,pdftex"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part*{Capítulo 1.
+ Introducción}
+\backslash
+addcontentsline{toc}{part}{Capítulo 1.
+ Introducción}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la actualidad los diversos problemas que se puedan encontrar en un producto
+ de software se reportan, con el fin de informar a los usuarios, de forma
+ que puedan prevenir caer en ese tipo de situaciones.
+ También se informa a los responsables del producto para que estos puedan
+ encontrar una solución.
+ La forma en que se reportan estos problemas depende mucho del sitio en
+ donde se haga el reporte, pero en general estos sitios no brindan muchas
+ pautas a la hora de hacer el reporte mientras en el mismo se brinde la
+ información necesaria.
+\end_layout
+
+\begin_layout Standard
+Algunos de los sitios en donde se reportan vulnerabilidades son los siguiente:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+http://seclists.org/fulldisclosure/
+\end_layout
+
+\begin_layout Itemize
+http://seclists.org/bugtraq/
+\end_layout
+
+\begin_layout Itemize
+https://www.exploit-db.com/
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los tres sitios antes mencionados son muy utilizados por los usuarios con
+ mas de 50 publicaciones mensuales en cada uno, aunque los tres tienen la
+ particularidad de no exigir u ofrecer un formato estándar para realizar
+ esos reportes.
+\end_layout
+
+\begin_layout Standard
+A continuación vemos un par de ejemplos de reportes tomados de los sitios
+ antes mencionados:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/no-estructurados-ejemplo1.png
+	scale 35
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename imagenes/no-estructurados-ejemplo2.png
+	scale 35
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por otro lado, existe un estándar para reportar vulnerabilidades de software
+ llamado CVE (
+\emph on
+Common Vulnerabilities and Exposures
+\emph default
+) que define de forma clara como debe ser la estructura de los reportes
+ de vulnerabilidades.
+\end_layout
+
+\begin_layout Standard
+Gracias a la adopción de CVE han aparecido algunas herramientas muy útiles
+ en los últimos tiempos como la calculadora definida por FIRST denominada
+ CVSS (
+\emph on
+Common Vulnerabilities Scoring 
+\emph default
+System), con la cual es posible calcular una puntuación para cada vulnerabilidad
+ identificando ciertos parámetros y permitiendo tener una visión mas clara
+ del impacto de la misma.
+\end_layout
+
+\begin_layout Standard
+Los siguientes son ejemplos de vulnerabilidades reportadas utilizando el
+ estándar CVE:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/cve-ejemplo1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/nvd-ejemplo1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El objetivo de este proyecto es analizar los reportes de fuentes no estructurada
+s de datos y lograr presentarlos en un formato estructurado utilizando CVE,
+ ademas intentaremos identificar los parámetros necesarios para calcular
+ una puntuación utilizando la calculadora CVSS.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1356 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue,pdfpagelayout=OneColumn, pdfnewwindow=true,pdfstartview=XYZ, plainpages=false, pdfpagelabels,pdftex"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part*{Capítulo 3.
+ Estructurar datos a partir de texto libre}
+\backslash
+addcontentsline{toc}{part}{Capítulo 3.
+ Estructurar datos a partir de texto libre}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Se presentan a continuación, diversas técnicas utilizadas en el reconocimiento
+ de entidades y clasificación de las mismas profundizando en las redes neuronale
+s, las cuales fueron las más utilizadas en los últimos años por los buenos
+ resultados obtenidos.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{3.1 Modelo Oculto de Markov (HMM)}
+\end_layout
+
+\end_inset
+
+
+\series bold
+3.1 
+\series default
+Modelo Oculto de Markov (HMM)
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Un Modelo Oculto de Markov (HMM) es un autómata de estados finito probabilístico
+ que comprende un conjunto de estados, transiciones entre los estados con
+ una probabilidad de transición asociada y un conjunto de valores de salida
+ para cada estado con una probabilidad de salida asociada.
+ Este modelo genera las transiciones de estado más probables desde el estado
+ inicial al estado final, que podrían haber generado una determinada secuencia
+ de salida.
+ La suma de las probabilidades asociadas es la probabilidad de la salida
+ generada.
+ 
+\end_layout
+
+\begin_layout Standard
+Formalmente, el modelo HMM consiste en:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+Un conjunto de 
+\emph on
+n
+\emph default
+ estados,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+un diccionario de 
+\emph on
+m
+\emph default
+ símbolos de salida,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+una matriz
+\emph on
+ A
+\begin_inset Formula $_{nxn}$
+\end_inset
+
+ d
+\emph default
+e transiciones, donde cada el elemento 
+\emph on
+a
+\begin_inset Formula $_{ij}$
+\end_inset
+
+
+\emph default
+es la probabilidad de ir del estado 
+\emph on
+i
+\emph default
+ al estado 
+\emph on
+j,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+una matriz 
+\emph on
+B
+\begin_inset Formula $_{nxm}$
+\end_inset
+
+
+\emph default
+donde cada elemento
+\emph on
+ b
+\begin_inset Formula $_{jk}$
+\end_inset
+
+ 
+\emph default
+denota la probabilidad de emitir el k-ésimo símbolo en el estado j.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+El objetivo de este modelo consiste en asociar cada símbolo de salida O
+ = o
+\begin_inset Formula $_{1}$
+\end_inset
+
+, o
+\begin_inset Formula $_{2}$
+\end_inset
+
+, ..., o
+\begin_inset Formula $_{k}$
+\end_inset
+
+, con un estado.
+ Se necesita encontrar un camino de longitud 
+\emph on
+k
+\emph default
+ desde el estado inicial hasta el estado final, de manera que el i-ésimo
+ símbolo o
+\begin_inset Formula $_{i}$
+\end_inset
+
+ es emitido por el estado i-ésimo en el trayecto.
+ Una secuencia de salida puede ser generada por múltiples caminos, cada
+ uno con su probabilidad correspondiente.
+ Se utiliza en general el algoritmo 
+\emph on
+Viterbi
+\emph default
+ para obtener el camino que tiene la mayor probabilidad de generar la secuencia
+ de salida.
+ 
+\end_layout
+
+\begin_layout Subsection*
+\paragraph_spacing double
+Trabajos realizados
+\end_layout
+
+\begin_layout Standard
+Los modelos de Markov ocultos parecen aplicarse naturalmente al reconocimiento
+ de entidades ya que el acto de etiquetar entidades nombradas parece estar
+ estrechamente relacionado con el acto de etiquetado semántico y estos sistemas
+ han tenido éxito usando HHMs.
+ NER (
+\emph on
+Named Entity Recognition
+\emph default
+), es un problema de clasificación que implica una representación de secuencia
+ de estado inherente donde el propio estado es una secuencia de estados
+ que necesita ser coordinada.
+ Los modelos de Markov ocultos dependen en gran medida de datos de entrenamiento
+ y utilizan suavizado para incluir datos no entrenados.
+\end_layout
+
+\begin_layout Standard
+Un trabajo interesante es presentado en el artículo 
+\emph on
+Automatic segmentation of text into structured records, 2001
+\begin_inset CommandInset citation
+LatexCommand cite
+key "borkar2001automatic"
+
+\end_inset
+
+
+\emph default
+ un método para estructurar texto libre, cuya principal motivación es dar
+ formato a direcciones localizando por ejemplo, 
+\begin_inset Quotes eld
+\end_inset
+
+ciudad
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+calle
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+país
+\begin_inset Quotes erd
+\end_inset
+
+, entre otros.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+La herramienta desarrollada en este trabajo 
+\begin_inset Quotes eld
+\end_inset
+
+DATAMOLD
+\begin_inset Quotes erd
+\end_inset
+
+ aprende a extraer la estructura requerida con un conjunto pequeño de entrenamie
+nto basado en el Modelo Oculto de Markov (HMM) para la construcción de un
+ modelo probabilístico.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+En la 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figura-1.-Estructura"
+
+\end_inset
+
+ se muestra un ejemplo de HMM para segmentación de direcciones.
+ Se observan 10 estados y cada transición etiquetada con la probabilidad
+ de transición entre el estado de origen y destino (matriz 
+\emph on
+A
+\emph default
+).
+ Por ejemplo, la probabilidad de que una dirección comience con el número
+ de casa es 0.92, y que le siga la ciudad luego de la ruta es 0.22.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Graphics
+	filename imagenes/fig1.png
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "Figura-1.-Estructura"
+
+\end_inset
+
+Figura 1.
+ Estructura de HMM
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Utilizando este modelo, se obtuvo una precisión del 99%, 88.9% y 83.7% en
+ los conjuntos de direcciones de US, de estudiantes universitarios y de
+ compañías respectivamente.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otros trabajos interesantes que aplican este modelo para el reconocimiento
+ de entidades y su clasificación son 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhou2002named"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "morwal2012named"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{3.2 Modelo de Máxima Entropía}
+\end_layout
+
+\end_inset
+
+
+\series bold
+3.2 
+\series default
+Modelo de Máxima Entropía
+\end_layout
+
+\begin_layout Standard
+El problema de reconocer y clasificar entidades puede verse como un problema
+ de etiquetado de palabras (
+\emph on
+tagging
+\emph default
+).
+ En este contexto, el modelo de máxima entropía ha sido utilizado ampliamente.
+\end_layout
+
+\begin_layout Standard
+Este modelo estima la probilidad de que una palabra se corresponda con determina
+da etiqueta haciendo el menor número de suposiciones posibles.
+ Las únicas restricciones son las derivadas de los datos de entrenamiento;
+ en otras palabras, se intenta seleccionar la mejor distribución de probabilidad
+ con la información disponible.
+ 
+\end_layout
+
+\begin_layout Standard
+Los clasificadores son entrenados a través de una serie de características
+ no contextuales, es decir, a nivel de palabras, características léxicas,
+ características morfológicas y características globales.
+ Por ejemplo, las características no contextuales incluyen la ubicación
+ del término en la secuencia, información de la palabra (por ejemplo, la
+ palabra contiene todas las letras mayúsculas y un punto), la primera palabra
+ (sea o no la palabra de comienzo de una oración).
+ Las características léxicas incluyen la frecuencia del término (cantidad
+ de veces que aparece), la existencia del término en el vocabulario, nombres
+ comunes.
+ Las características globales pueden tomarse por ejemplo de la información
+ del resto del documento.
+\end_layout
+
+\begin_layout Standard
+La probabilidad de distribución que satisface la propiedad mencionada, es
+ aquella que tiene la máxima entropía y tiene la forma:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+p(o|h)
+\emph default
+ = 
+\begin_inset Formula $\frac{1}{Z(h)}$
+\end_inset
+
+
+\begin_inset Formula $\prod_{j=1}^{k}$
+\end_inset
+
+
+\begin_inset Formula $\alpha_{j}^{f_{j}(h,o)}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Donde 
+\emph on
+o
+\emph default
+ es la entrada (la etiqueta), 
+\emph on
+h
+\emph default
+ es la historia (el contexto), 
+\emph on
+Z(h)
+\emph default
+ es una función de normalización, 
+\emph on
+f
+\emph default
+
+\begin_inset Formula $_{j}(h,o)$
+\end_inset
+
+ es una función binaria que describe características o propiedades, por
+ ejemplo, para saber si una palabra pertenece a cierto tipo o clase, o para
+ asociar una etiqueta con elementos del contexto, por ejemplo:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+f
+\emph default
+
+\begin_inset Formula $_{j}(h,o)$
+\end_inset
+
+ = 1 si palabra(h) = mesa y o es artículo, 0 en otro caso.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Los parámetros 
+\begin_inset Formula $\alpha_{j}$
+\end_inset
+
+ o pesos se estiman utilizando el algoritmo 
+\emph on
+Generalized Iterative Scaling (GIS)
+\emph default
+ (Darroch and Ratcliff, 1972).
+ Es un método iterativo que mejora la estamación de los parámetros en cada
+ iteración.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Algunos trabajos encontrados utilizando este modelo fueron los siguientes:
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "curran2003language"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chieu2002named"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{3.3 Gramáticas libre de contexto}
+\end_layout
+
+\end_inset
+
+
+\series bold
+3.3 Gramáticas libre de contexto
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Unas de las aplicaciones frecuentes en la extracción de información desde
+ fuentes semi-estructuradas es la búsqueda de autores y títulos dentro de
+ un documento, búsqueda de nombres, números telefónicos y direcciones en
+ firmas de correos electrónicos.
+ Este último tipo de problema puede volverse complejo debido a la variabilidad
+ de los campos de información, por ejemplo, en las firmas de los correos
+ electrónicos encontramos que a veces figura una dirección, a veces no,
+ algunos nombres o apellidos pueden estar formados por 2 o más palabras,
+ a menudo también se puede referenciar a más de un teléfono, etc.
+ Esta característica aporta cierta complejidad, resultando difícil utilizar
+ sistemas no-estadísticos para la resolución, debido a la falta de rigidez
+ en el formato de entrada.
+ En el artículo 
+\emph on
+Learning
+\emph default
+ 
+\emph on
+to extract information from semi-structured text using a discriminative
+ context free grammar
+\emph default
+, 2005
+\begin_inset CommandInset citation
+LatexCommand cite
+key "viola2005learning"
+
+\end_inset
+
+ se muestra que problemas similares pueden ser resueltos más eficientemente
+ mediante el aprendizaje de una gramática libre de contexto a partir del
+ conjunto de datos de entrenamiento.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Una manera de solucionar el problema según el artículo anterior, es considerar
+ el texto de entrada como un conjunto de términos, donde cada término es
+ asociado a una etiqueta.
+ A su vez, todos los términos con misma etiqueta serán ingresados en el
+ mismo campo de la base de datos.
+ Para llevar a cabo esta tarea se puede utilizar un algoritmo de clasificación
+ de términos.
+ Algunos de los enfoques más comunes de estos algoritmos son los Modelos
+ de Máxima Entropía y Modelos de Markov.
+ Sin embargo debido a su funcionamiento presentan algunas desventajas que
+ hacen que el problema se vuelva más costoso utilizando estos modelos.
+ Por ejemplo, observemos el caso mostrado en la siguiente figura:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Graphics
+	filename imagenes/paper2_fig1.png
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "Figura-5.-Desambiguación de número telefónico"
+
+\end_inset
+
+Figura 5.
+ Desambiguación de número telefónico
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Cómo se quiere asociar el último campo (número de teléfono) en el ejemplo
+ anterior: como teléfono personal, o como teléfono de empresa (dependiendo
+ si el primer campo, nombre, corresponde a una persona o a una empresa).
+ Como la dependencia se da entre la etiqueta del primer término y la etiqueta
+ del último no existe una manera fácil de resolver esto con un modelo de
+ Markov, ya que éstos sólo pueden codificar restricciones entre etiquetas
+ adyacentes.
+ Para este tipo de problemas resulta más conveniente utilizar un algoritmo
+ de clasificación basado en Gramáticas Libres de Contexto (CFG por sus siglas
+ en inglés:
+\emph on
+ Context Free Grammars
+\emph default
+) ya que éstas permiten codificar restricciones en un amplio rango de distancia
+ entre etiquetas.
+ Para resolver el problema, la gramática podría contener distintas producciones,
+ una para información personal, y otra para empresas.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Recordemos cómo están formadas las gramáticas libres de contexto:
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+\begin_inset Formula ${w^{k}}$
+\end_inset
+
+
+\begin_inset Formula $^{v}$
+\end_inset
+
+
+\begin_inset Formula $_{k\text{=1}}$
+\end_inset
+
+: conjunto de terminales,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+\begin_inset Formula ${N^{j}}$
+\end_inset
+
+
+\begin_inset Formula $^{n}$
+\end_inset
+
+
+\begin_inset Formula $_{j\text{=1}}$
+\end_inset
+
+: conjunto de no terminales,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+
+\emph on
+N
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\emph default
+: símbolo inicial,
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+\begin_inset Formula ${R_{i}:N^{ji}->s^{i}}$
+\end_inset
+
+: conjunto de reglas de producción.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Donde 
+\emph on
+s
+\emph default
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+es una secuencia de terminales y de no terminales.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Otro ejemplo interesante en el que las gramáticas libres de contexto pueden
+ resultar útiles es cuando recibimos una entrada que puede contar con fallas
+ (ya sea por reconocimiento de voz, escaneo de imágenes, etc.).
+ Supongamos que se deletrea mal el nombre de una ciudad (lo que termina
+ generando una entrada errónea), si contamos con otro campo (como puede
+ ser un código postal), que nos sirva para salir de la ambigüedad, podríamos
+ generar mejores predicciones acerca de la ciudad.
+ En cualquiera de estos casos el uso de gramáticas libres de contexto resulta
+ en una mejora notoria con respecto a los modelos de Markov, no sólo en
+ el etiquetado, sino también en el aprendizaje basándose en los datos etiquetado
+s.
+ El 
+\emph on
+parser
+\emph default
+ de las gramáticas recibe una secuencia de términos y retorna el árbol de
+ 
+\emph on
+parseo
+\emph default
+ óptimo correspondiente a dichos términos (óptimo en términos de bajo costo,
+ o probabilidad más alta).
+ En la siguiente imagen podemos ver un ejemplo de dicho árbol.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Otro ejemplo interesante en el que las gramáticas libres de contexto pueden
+ resultar útiles es cuando recibimos una entrada que puede contar con fallas
+ (ya sea por reconocimiento de voz, escaneo de imágenes, etc.).
+ Supongamos que se deletrea mal el nombre de una ciudad (lo que termina
+ generando una entrada errónea), si contamos con otro campo (como puede
+ ser un código postal), que nos sirva para salir de la ambigüedad, podríamos
+ generar mejores predicciones acerca de la ciudad.
+ En cualquiera de estos casos el uso de gramáticas libres de contexto resulta
+ en una mejora notoria con respecto a los modelos de Markov, no sólo en
+ el etiquetado, sino también en el aprendizaje basándose en los datos etiquetado
+s.
+ El parser de las gramáticas recibe una secuencia de tokens y retorna el
+ árbol de parseo óptimo correspondiente a dichos tokens (óptimo en términos
+ de bajo costo, o probabilidad más alta).
+ En la siguiente imagen podemos ver un ejemplo de dicho árbol.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Graphics
+	filename imagenes/paper2-fig2.png
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "Figura-6.-Árbol de parseo con información de contacto"
+
+\end_inset
+
+Figura 6.
+ Árbol de parseo con información de contacto
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+El árbol de 
+\emph on
+parseo
+\emph default
+ es un árbol cuyas hojas están etiquetadas con terminales y los nodos interiores
+ etiquetados con no terminales.
+ Las hojas del árbol son los términos, mientras que los padres de dichos
+ términos son las etiquetas.
+ De esta manera es fácil generar la secuencia de etiquetas a partir del
+ árbol.
+ Se puede observar que se forma una estructura jerárquica entre las etiquetas,
+ la cual no es arbitraria, ya que es natural una vez que tenemos FIRSTNAME
+ y LASTNAME generar NAME basándonos en la construcción de las gramáticas.
+ Por lo que podemos considerar la regla de producción:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+NAME -> FIRSTNAME LASTNAME
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Así como también podríamos considerar las siguientes reglas de producción
+ para NAME:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+NAME -> LASTNAME, FIRSTNAME 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+NAME -> FIRSTNAME MIDDLENAME LASTNAME
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+NAME -> FIRSTNAME NICKNAME LASTNAME
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Y a su vez podríamos utilizar NAME para generar nuevas producciones, como
+ podrían ser NOMBRECOMPLETO, etc.
+ En cuanto al entrenamiento, el objetivo es encontrar los parámetros 
+\emph on
+lambda
+\emph default
+ que maximicen algún criterio de optimización, como puede ser obtener máxima
+ verosimilitud para modelos generativos.
+ El algoritmo de aprendizaje que utilizaron los autores es una variante
+ del algoritmo 
+\emph on
+Perceptron
+\emph default
+, y está basado en el algoritmo para entrenar modelos de Markov propuesto
+ por Collins en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "collins2002discriminative"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Supongamos 
+\emph on
+t
+\emph default
+ la colección de datos de entrenamiento:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+{(w
+\begin_inset Formula $^{i},$
+\end_inset
+
+l
+\begin_inset Formula $^{a},$
+\end_inset
+
+T
+\begin_inset Formula $^{a}$
+\end_inset
+
+)/1≤i≤m}
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Siendo T
+\begin_inset Formula $^{i}$
+\end_inset
+
+el árbol de 
+\emph on
+parseo
+\emph default
+.
+ Y la colección de palabras y etiquetas:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+w
+\begin_inset Formula $^{i}$
+\end_inset
+
+= w
+\begin_inset Formula $_{1}$
+\end_inset
+
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+w
+\begin_inset Formula $_{2}$
+\end_inset
+
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+...w
+\begin_inset Formula $_{n_{i}}$
+\end_inset
+
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+, 
+\begin_inset Newline newline
+\end_inset
+
+l
+\begin_inset Formula $^{i}$
+\end_inset
+
+= l
+\begin_inset Formula $_{1}$
+\end_inset
+
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+l
+\begin_inset Formula $_{2}$
+\end_inset
+
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+...l
+\begin_inset Formula $_{n_{i}}$
+\end_inset
+
+
+\begin_inset Formula $^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Para cada regla R en la gramática, se busca un ajuste de los parámetros
+ 
+\emph on
+lambda
+\emph default
+(R) para que el resultado sea maximizado para el correcto 
+\emph on
+parseo
+\emph default
+ T
+\begin_inset Formula $^{i}$
+\end_inset
+
+ de w
+\begin_inset Formula $^{i}$
+\end_inset
+
+para 
+\emph on
+i
+\emph default
+ entre 0 y 
+\emph on
+m
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+A continuación se muestra el algoritmo utilizado por los autores:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Graphics
+	filename imagenes/paper2-fig3.png
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "Figura-7.-Algoritmo de entrenamiento Perceptron"
+
+\end_inset
+
+Figura 7.
+ Algoritmo de entrenamiento Perceptron
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Como resultados del trabajo planteado en el paper se obtuvo una reducción
+ del porcentaje de error del 50% en comparación con técnicas anteriores.
+ Utilizando una gramática entrenada, el 93.71 % de lo términos son etiquetados
+ correctamente (contra el 88.43% obtenido por el método CM) y el 72.87 % de
+ los registros tienen todos los términos etiquetados correctamente M (contra
+ el 45.29 % obtenido por el método CMM).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{3.4 Expresiones regulares}
+\end_layout
+
+\end_inset
+
+
+\series bold
+3.4 Expresiones regulares
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+En el artículo 
+\emph on
+Extracting Structured Information from Free Text Pathology Reports, 2003
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "schadow2003extracting"
+
+\end_inset
+
+
+\emph default
+, se busca desarrollar una herramienta que pueda extraer información estructurad
+a a partir de fuentes de texto libre.
+ Se desarrolla un método para extraer información acerca de tejidos de especímen
+es y hallazgos de éstos en informes de patología quirúrgica, utilizando
+ expresiones regulares que conducen a una máquina de estados sobre XSLT
+ y Java.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+En los reportes de texto pueden realizarse búsquedas por indexado de texto
+ (búsqueda por palabra) o bien realizando un indexado conceptual (búsqueda
+ por concepto).
+ Las búsquedas por palabra son generalmente mas sencillas de implementar
+ y actualmente existen muchas herramientas para realizar el indexado de
+ texto, en cambio las búsquedas por concepto tienen la ventaja de poder
+ encontrar sinónimos y relacionar conceptos sin la necesidad de usar una
+ misma palabra pero son mas difíciles de implementar.
+\end_layout
+
+\begin_layout Subsection*
+\paragraph_spacing double
+Metodología
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+En primera instancia a cada reporte se le aplica una técnica de depuración
+ en donde solo se mantienen las secciones tituladas con “diagnosis”, todo
+ el resto del texto se descarta.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Luego se utiliza un 
+\emph on
+parser
+\emph default
+ basado en expresiones regulares para identificar el tipo de tejido, zona
+ en donde se encuentra y cómo se recolectarlo.
+ El 
+\emph on
+parser
+\emph default
+ aplica expresiones regulares dependiendo del contexto, el cual es controlado
+ por una máquina de estados.
+ La gramática esta definida en un archivo en formato XML híbrido con extensiones
+ XSLT que definen los estados del 
+\emph on
+parser
+\emph default
+ y las transiciones.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+El 
+\emph on
+parser
+\emph default
+ envía fragmentos de texto a un servicio de codificación de frases y este
+ responde con un pequeño documento XML con mapeos y conceptos ordenados
+ por puntuación.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+El 
+\emph on
+parser
+\emph default
+ es capaz de relacionar partes del texto, ayudando al proceso de codificación
+ aceptando sólo ciertos tipos semánticos que se ajusten al significado esperado
+ de la frase.
+\end_layout
+
+\begin_layout Subsection*
+\paragraph_spacing double
+Resultados
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+En general los resultados fueron buenos, de 275 reportes, el 91% de las
+ entidades fueron codificadas satisfactoriamente, esto quiere decir que
+ tenían todos sus hallazgos críticos representados por códigos.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Algunos de los errores que se identificaron se debieron a problemas con
+ el codificador para encontrar el concepto correcto o errores en el 
+\emph on
+parser
+\emph default
+ para aceptar ciertos tipos semánticos (por
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+entender que no tenían relación con la frase enviada a codificar).
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,203 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue,pdfpagelayout=OneColumn, pdfnewwindow=true,pdfstartview=XYZ, plainpages=false, pdfpagelabels,pdftex"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+\paragraph_spacing double
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part*{Capítulo 4.
+ Conferencias realizadas}
+\backslash
+addcontentsline{toc}{part}{Capítulo 4.
+ Conferencias realizadas}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Se han realizado numerosas conferencias donde se presentan los resultados
+ de nuevas investigaciones y técnicas en el campo de recuperación de información
+, incluyendo técnicas de segmentación de textos por temas:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+NAACL/HLT 2016 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NAACL-2016"
+
+\end_inset
+
+: La conferencia abarca un amplio espectro de disciplinas con el objetivo
+ de permitir la interacción con los sistemas a partir del lenguaje natural
+ y mejorar servicios tales como el reconocimiento de voz, traducción automática,
+ recuperación de información, resumen de texto, extracción de información,
+ clasificación de documentos.
+ 
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+SIGIR 2016
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SIGIR-2016"
+
+\end_inset
+
+: La conferencia consta de 5 días de presentaciones de artículos, tutoriales,
+ talleres y se centra en la investigación y el desarrollo en el área de
+ IR (del inglés 
+\emph on
+Information Retrieval
+\emph default
+, que en español significa Recuperación de Información).
+ 
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+ECIR 2016 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ECIR-2016"
+
+\end_inset
+
+: Conferencia anual europea sobre la recuperación de información, en donde
+ se presentan nuevos resultados en el campo.
+ Promueve la presentación de trabajos de investigación de alta calidad en
+ variedad de temas.
+ 
+\end_layout
+
+\begin_layout Itemize
+\paragraph_spacing double
+ICTIR 2016 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ICTIR-2016"
+
+\end_inset
+
+: Conferencia sobre recuperación de información, que abarca un amplio espectro
+ de las diversas áreas de investigación que se ocupan de los aspectos matemático
+s / formales de IR, incluidas las cuestiones fundamentales, la descripción
+ o la integración de los modelos, aplicaciones de recuperación de información,
+ técnicas matemáticas / formales, existentes y / o nuevas teorías y aspectos
+ teóricos.
+ El programa de la conferencia incluye tutoriales abiertos a todos los participa
+ntes, una mesa redonda sobre los retos y oportunidades de largo alcance
+ para la investigación de IR y diversos discursos sobre el campo.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Estas conferencias se realizan anualmente exponiendo los nuevos resultados
+ de las investigaciones en el área.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
